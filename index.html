@@ -26,14 +26,13 @@
 }).addTo(map);
 
 
-    // Añadir la capa NDVI desde GEE utilizando el URL del tile
-    L.tileLayer('https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/cad8fe364a92ea922ab1c72a662db576-feaf4e8b99211cd2cb6863fdccae5169/tiles/%7Bz%7D/%7Bx%7D/%7By%7D', {
-        attribution: 'NDVI data from Google Earth Engine',
-        maxZoom: 18,
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(map);
-</script>
+L.tileLayer('https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/cad8fe364a92ea922ab1c72a662db576-feaf4e8b99211cd2cb6863fdccae5169/tiles/{z}/{x}/{y}', {
+    attribution: 'NDVI data from Google Earth Engine',
+    maxZoom: 18,
+    tileSize: 512,
+    zoomOffset: -1
+}).addTo(map);
+
 
 </body>
 </html>
