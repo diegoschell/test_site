@@ -27,7 +27,7 @@
 
 
     // Añadir la capa NDVI desde GEE utilizando el URL del tile
-    L.tileLayer('https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/maps/cad8fe364a92ea922ab1c72a662db576/tiles/{z}/{x}/{y}', {
+   L.tileLayer('https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/maps/cad8fe364a92ea922ab1c72a662db576/tiles/{z}/{x}/{y}?token=abcd1234efgh5678ijkl9012', {
         attribution: 'NDVI data from Google Earth Engine',
         maxZoom: 18,
         tileSize: 512,
