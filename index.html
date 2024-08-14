@@ -1,7 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDVI Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Configurar el mapa
+    var map = L.map('map').setView([40.735, -73.986], 13);
+
+    // Añadir el mapa base de Mapbox
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'TU_MAPBOX_ACCESS_TOKEN'
+    }).addTo(map);
+
+    // Añadir la capa NDVI desde GEE utilizando el URL del tile
+    L.tileLayer('https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/cad8fe364a92ea922ab1c72a662db576-feaf4e8b99211cd2cb6863fdccae5169/tiles/%7Bz%7D/%7Bx%7D/%7By%7D', {
+        attribution: 'NDVI data from Google Earth Engine',
+        maxZoom: 18,
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+</script>
+
 </body>
 </html>
+
